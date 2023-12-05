@@ -32,6 +32,15 @@ nome
     ON `departments`.`id` = `degrees`.`department_id`
     ORDER BY `students`.`surname`, `students`.`name` ASC;
 5. Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
+    SELECT `degrees`.`name` as `degree_name`, `courses`.`name` as `course_name`, `teachers`.`name` as `teacher_name`, `teachers`.`surname` as `teacher_surname`
+    FROM `degrees`
+    INNER JOIN `courses`
+    ON `courses`.`degree_id` = `degrees`.`id`
+    INNER JOIN `course_teacher`
+    ON `course_teacher`.`course_id` = `courses`.`id`
+    INNER JOIN `teachers`
+    ON `teachers`.`id` = `course_teacher`.`teacher_id`
+    ORDER BY `degree_name`;
 6. Selezionare tutti i docenti che insegnano nel Dipartimento di
 Matematica (54)
 7. BONUS: Selezionare per ogni studente il numero di tentativi sostenuti
