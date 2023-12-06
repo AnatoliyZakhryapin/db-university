@@ -43,7 +43,7 @@ nome
     ORDER BY `degree_name`;
 6. Selezionare tutti i docenti che insegnano nel Dipartimento di
 Matematica (54)
-    SELECT `departments`.`name` as `department_name`, `teachers`.`name` as `teacher_name`, `teachers`.`surname` as `teacher_surname`
+    SELECT DISTINCT `departments`.`name` as `department_name`, `teachers`.`name` as `teacher_name`, `teachers`.`surname` as `teacher_surname`
     FROM `departments`
     INNER JOIN `degrees`
     ON `degrees`.`department_id` = `departments`.`id`
